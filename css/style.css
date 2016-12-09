@@ -1,0 +1,31 @@
+.alert-danger{
+  display: none;
+}
+#forTweet{
+  display: none;
+}
+.centerBlock{
+  margin: 0 auto;
+  position: relative;
+}
+.content{
+  background-color: #add8e6;
+  width: 600px;
+  margin: 12px auto 12px;
+  padding: 30px;  
+}
+h1{
+  font-family: 'Bungee', cursive;
+}
+body{
+  font-family: 'Raleway', sans-serif;
+}
+button{
+  min-width: 150px;
+}
+.title{
+  margin-top: 38px;
+}
+footer{
+  margin-bottom: 38px;
+}
