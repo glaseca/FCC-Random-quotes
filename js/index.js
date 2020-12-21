@@ -3,15 +3,15 @@ var currentAuthor = "";
 var forTweet = "";
 var getQuote = function (){
     $.ajax({
-      url: "https://api.quotable.io/random",
+      url: "https://quotesondesign.com/wp-json/wp/v2/posts/?orderby=rand",
       method: "GET",
-      data: {"filter[orderby]":"rand","filter[posts_per_page]":1,"callback":""},
       cache: false,
       dataType: "json"
     })
     .done(function(msg) {
-      currentQuote = msg.content;
-      currentAuthor = msg.author;
+      var regex = /(<([^>]+)>)/ig;
+      currentQuote = msg[0].excerpt.rendered.replace(regex, "").trim();
+      currentAuthor = msg[0].title.rendered;
      $('.box').html("<blockquote class='blockquote'>" + currentQuote + "<footer class='blockquote-footer''>" + currentAuthor + "</footer></blockquote>");
      forTweet = $('#forTweet').html('"' + currentQuote + '" by ' + currentAuthor).text();
     })
